@@ -55,51 +55,6 @@ function loadData() {
   }
 }
 
-// ===== EXPORT / IMPORT =====
-function exportData() {
-  const data = {
-    notes: state.notes,
-    titles: state.titles,
-    exportedAt: new Date().toISOString()
-  };
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = '13ay-veriler.json';
-  a.click();
-  URL.revokeObjectURL(url);
-}
-
-function importData() {
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = '.json';
-  input.addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      try {
-        const data = JSON.parse(ev.target.result);
-        if (data.notes && data.titles) {
-          state.notes = data.notes;
-          state.titles = data.titles;
-          saveData();
-          renderGrid();
-          alert('Veriler başarıyla yüklendi! ✓');
-        } else {
-          alert('Geçersiz dosya formatı.');
-        }
-      } catch(err) {
-        alert('Dosya okunamadı.');
-      }
-    };
-    reader.readAsText(file);
-  });
-  input.click();
-}
-
 // ===== NOTE KEY =====
 function noteKey(monthIdx, day) {
   return `${monthIdx}-${day}`;
@@ -276,7 +231,7 @@ function updateYear() {
 
 // ===== THEME =====
 function initTheme() {
-  const saved = localStorage.getItem('cal13_theme') || 'theme-dark';
+  const saved = localStorage.getItem('cal13_theme') || 'theme-light';
   setTheme(saved);
 
   document.querySelectorAll('.theme-btn').forEach(btn => {
@@ -343,10 +298,6 @@ function bindEvents() {
     renderGrid();
     closeDayNote();
   });
-
-  // Export / Import
-  document.getElementById('exportBtn').addEventListener('click', exportData);
-  document.getElementById('importBtn').addEventListener('click', importData);
 
   // ESC key
   document.addEventListener('keydown', (e) => {
