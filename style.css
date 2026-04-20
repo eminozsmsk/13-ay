@@ -629,33 +629,3 @@ body {
   .counter-value { font-size: 26px; }
   .theme-switcher { top: 12px; right: 12px; }
 }
-
-/* ===== DATA ACTIONS ===== */
-.data-actions {
-  position: fixed;
-  top: 24px;
-  left: 24px;
-  z-index: 1000;
-  display: flex;
-  gap: 8px;
-}
-
-.data-btn {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 50px;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  padding: 8px 14px;
-  transition: all var(--transition);
-  backdrop-filter: blur(10px);
-}
-.data-btn:hover { color: var(--accent); border-color: var(--accent); }
-
-@media (max-width: 600px) {
-  .data-actions { top: 12px; left: 12px; }
-  .data-btn { font-size: 10px; padding: 6px 10px; }
-}
