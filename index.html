@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13 Aylık Takvim</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&family=Bebas+Neue&family=Crimson+Pro:ital,wght@0,300;0,600;1,300&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+
+  <!-- Theme Switcher -->
+  <div class="theme-switcher">
+    <button class="theme-btn active" data-theme="theme-dark" title="Karanlık & Şık">◆</button>
+    <button class="theme-btn" data-theme="theme-light" title="Açık & Minimal">◇</button>
+    <button class="theme-btn" data-theme="theme-vivid" title="Renkli & Canlı">●</button>
+    <button class="theme-btn" data-theme="theme-retro" title="Retro/Vintage">▣</button>
+  </div>
+
+  <!-- Year Header -->
+  <header class="site-header">
+    <div class="year-display" id="yearDisplay"></div>
+    <div class="header-sub">13 Aylık Takvim</div>
+  </header>
+
+  <!-- Month Grid -->
+  <main class="months-grid" id="monthsGrid"></main>
+
+  <!-- Day Counter -->
+  <div class="day-counter" id="dayCounter">
+    <div class="counter-label">YIL İLERLEMESİ</div>
+    <div class="counter-value"><span id="counterCurrent">—</span><span class="counter-slash">/</span><span id="counterTotal">365</span></div>
+    <div class="counter-bar"><div class="counter-fill" id="counterFill"></div></div>
+  </div>
+
+  <!-- Month Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-month-num" id="modalMonthNum"></div>
+      <div class="modal-month-title" id="modalMonthTitle"></div>
+      <div class="modal-title-input-wrap">
+        <input type="text" class="modal-title-input" id="modalTitleInput" placeholder="Bu aya bir başlık ekle…" maxlength="60">
+        <button class="save-title-btn" id="saveTitleBtn">Kaydet</button>
+      </div>
+      <div class="modal-calendar" id="modalCalendar"></div>
+      <div class="note-section">
+        <div class="note-label">Günlük Notlar</div>
+        <div class="note-display" id="noteDisplay"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day Note Modal -->
+  <div class="day-note-overlay" id="dayNoteOverlay">
+    <div class="day-note-modal" id="dayNoteModal">
+      <button class="modal-close" id="dayNoteClose">✕</button>
+      <div class="day-note-date" id="dayNoteDate"></div>
+      <textarea class="day-note-input" id="dayNoteInput" placeholder="Bu gün için notunuzu yazın…"></textarea>
+      <button class="save-note-btn" id="saveDayNote">Kaydet</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
